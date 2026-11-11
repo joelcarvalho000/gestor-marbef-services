@@ -1,0 +1,16 @@
+name: gestor_marbef_services
+description: Interface inicial Android do Gestor Marbef Services.
+publish_to: 'none'
+version: 0.3.0+3
+
+environment:
+  sdk: '>=3.3.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/marbef_logo.jpg
