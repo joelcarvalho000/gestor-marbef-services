@@ -27,9 +27,10 @@ jobs:
           channel: 'stable'
 
       - name: Initialize project platform files
-  
-        run: flutter create . --platforms=android --project-name=gestor_marbef_services
-
+        run: |
+          flutter create . --platforms=android --project-name=gestor_marbef_services
+          # Garantir que os repositórios do Gradle estão configurados corretamente
+          echo "allprojects { repositories { google(); mavenCentral() } }" >> android/build.gradle
 
       - name: Install dependencies
         run: flutter pub get
@@ -42,6 +43,7 @@ jobs:
         with:
           name: app-debug-apk
           path: build/app/outputs/flutter-apk/app-debug.apk
+
 
 
 
