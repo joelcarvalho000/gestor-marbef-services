@@ -27,7 +27,9 @@ jobs:
           channel: 'stable'
 
       - name: Initialize project platform files
-        run: flutter create . --platforms=android
+  
+        run: flutter create . --platforms=android --project-name=gestor_marbef_services
+
 
       - name: Install dependencies
         run: flutter pub get
