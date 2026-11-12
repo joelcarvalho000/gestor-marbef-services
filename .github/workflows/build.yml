@@ -19,29 +19,29 @@ jobs:
         with:
           distribution: 'zulu'
           java-version: '17'
-- name: Set up Flutter
-  uses: subosito/flutter-action@v2
-  with:
-    channel: stable
+
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+
       - name: Initialize project platform files
         run: |
           flutter create . --platforms=android --project-name=gestor_marbef_services
-          # Garantir que os repositórios do Gradle estão configurados corretamente
+          # Garantir que os repositórios no Gradle estão configurados corretamente
           echo "allprojects { repositories { google(); mavenCentral() } }" >> android/build.gradle
 
       - name: Install dependencies
         run: flutter pub get
 
       - name: Build APK
-  run: flutter build apk --release
+        run: flutter build apk --release
 
       - name: Upload APK Artifact
         uses: actions/upload-artifact@v4
         with:
-          
-name: app-release-apk
-path: build/app/outputs/flutter-apk/app-release.apk
-
+          name: app-release-apk
+          path: build/app/outputs/flutter-apk/app-release.apk
 
 
 
