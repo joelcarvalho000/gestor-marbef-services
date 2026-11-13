@@ -34,6 +34,82 @@
             min-height: 100vh;
         }
 
+        /* TELA DE LOGIN / PROTEÇÃO POR SENHA */
+        #tela-login {
+            position: fixed;
+            inset: 0;
+            background: linear-gradient(135deg, #061d4a 0%, #0e3a8a 60%, #991b1b 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            padding: 20px;
+        }
+
+        .login-card {
+            background: #ffffff;
+            width: 100%;
+            max-width: 400px;
+            border-radius: 14px;
+            padding: 32px 28px;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35);
+            border-top: 6px solid var(--vermelho);
+        }
+
+        .login-card h2 {
+            color: var(--azul-escuro);
+            margin-top: 12px;
+            font-size: 1.4rem;
+            font-weight: 800;
+        }
+
+        .login-card p {
+            color: #64748b;
+            font-size: 0.88rem;
+            margin: 6px 0 22px;
+        }
+
+        .login-input {
+            width: 100%;
+            padding: 12px 14px;
+            border: 2px solid #cbd5e1;
+            border-radius: 8px;
+            font-size: 1rem;
+            margin-bottom: 14px;
+            text-align: center;
+            outline: none;
+        }
+
+        .login-input:focus {
+            border-color: var(--azul-medio);
+        }
+
+        .btn-entrar {
+            width: 100%;
+            background: linear-gradient(90deg, var(--azul-escuro) 0%, var(--azul-medio) 100%);
+            color: #ffffff;
+            border: none;
+            padding: 13px;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+
+        .btn-entrar:hover {
+            opacity: 0.92;
+        }
+
+        .erro-login {
+            color: var(--vermelho);
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-top: 10px;
+            display: none;
+        }
+
         /* CABEÇALHO CORPORATIVO */
         header {
             background: #ffffff;
@@ -122,7 +198,7 @@
         }
 
         .badge-offline {
-            color: var(--vermelho);
+            color: var(--verde);
             font-weight: 700;
         }
 
@@ -179,6 +255,18 @@
             box-shadow: 0 4px 10px rgba(214, 28, 28, 0.4);
         }
 
+        .nav-btn-sair {
+            margin-top: 15px;
+            background: rgba(214, 28, 28, 0.2);
+            border: 1px solid rgba(214, 28, 28, 0.5);
+            color: #fecaca;
+        }
+
+        .nav-btn-sair:hover {
+            background: var(--vermelho);
+            color: #ffffff;
+        }
+
         .nav-icon {
             font-size: 1.15rem;
             width: 22px;
@@ -206,7 +294,6 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* FAIXA TÍTULO DA SECÇÃO */
         .section-banner {
             background: linear-gradient(90deg, var(--azul-escuro) 0%, var(--azul-medio) 100%);
             color: #ffffff;
@@ -290,7 +377,7 @@
             margin-top: 3px;
         }
 
-        /* PAINEL INTERMÉDIO (GRÁFICO + ALERTAS) */
+        /* PAINEL INTERMÉDIO */
         .mid-grid {
             display: grid;
             grid-template-columns: 1.3fr 1fr;
@@ -321,7 +408,6 @@
             padding: 18px;
         }
 
-        /* GRÁFICO BARRAS SIMPLES */
         .chart-legend {
             display: flex;
             justify-content: center;
@@ -368,13 +454,11 @@
         .bar {
             width: 24px;
             border-radius: 4px 4px 0 0;
-            transition: height 0.4s ease;
         }
 
         .bar-r { background: var(--azul-medio); }
         .bar-d { background: var(--vermelho); }
 
-        /* ALERTAS */
         .alerta-item {
             display: flex;
             align-items: center;
@@ -409,7 +493,6 @@
             flex-shrink: 0;
         }
 
-        /* MENU RÁPIDO + CARTÃO INSTITUCIONAL */
         .bottom-grid {
             display: grid;
             grid-template-columns: 1.6fr 1fr;
@@ -496,6 +579,18 @@
         }
 
         /* FORMULÁRIOS E TABELAS */
+        .sub-titulo {
+            color: var(--azul-escuro);
+            font-size: 1.1rem;
+            font-weight: 800;
+            margin: 26px 0 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border-left: 4px solid var(--vermelho);
+            padding-left: 10px;
+        }
+
         .form-card {
             background: #ffffff;
             padding: 18px;
@@ -551,6 +646,17 @@
             opacity: 0.92;
         }
 
+        .btn-verde {
+            background: var(--verde);
+            color: #ffffff;
+            border: none;
+            padding: 6px 11px;
+            border-radius: 5px;
+            font-weight: 700;
+            cursor: pointer;
+            font-size: 0.8rem;
+        }
+
         .btn-vermelho {
             background: var(--vermelho);
             color: #ffffff;
@@ -584,6 +690,7 @@
             overflow-x: auto;
             border: 1px solid #cbd5e1;
             box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+            margin-bottom: 20px;
         }
 
         table {
@@ -626,7 +733,6 @@
             color: #991b1b;
         }
 
-        /* RESPONSIVIDADE TELEMÓVEL */
         @media (max-width: 900px) {
             .mid-grid, .bottom-grid {
                 grid-template-columns: 1fr;
@@ -651,6 +757,9 @@
                 padding: 9px 12px;
                 font-size: 0.85rem;
             }
+            .nav-btn-sair {
+                margin-top: 0;
+            }
             .status-bar {
                 display: none;
             }
@@ -658,6 +767,21 @@
     </style>
 </head>
 <body>
+
+    <!-- TELA DE PROTEÇÃO POR SENHA -->
+    <div id="tela-login">
+        <div class="login-card">
+            <svg width="100" height="40" viewBox="0 0 120 45">
+                <path d="M5,28 L30,28 L42,8 L55,38 L68,12 L80,28 L115,28" fill="none" stroke="#d61c1c" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M5,33 L33,33 L44,16 L56,42 L68,20 L78,33 L115,33" fill="none" stroke="#082356" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <h2>MARBEF Services SU Lda</h2>
+            <p>Área Protegida • Insira a senha de administrador</p>
+            <input type="password" id="input-senha" class="login-input" placeholder="Palavra-passe" onkeypress="if(event.key==='Enter') verificarLogin()">
+            <button class="btn-entrar" onclick="verificarLogin()">🔓 Entrar no Sistema</button>
+            <div id="msg-erro-login" class="erro-login">Senha incorreta! Tente novamente.</div>
+        </div>
+    </div>
 
     <!-- CABEÇALHO CORPORATIVO -->
     <header>
@@ -677,10 +801,10 @@
 
         <div class="status-bar">
             <div class="status-item">
-                <span>📡</span>
+                <span>🔒</span>
                 <div>
-                    <div class="badge-offline">Modo Local Ativo</div>
-                    <div style="font-size: 0.72rem; color: #64748b;">Dados guardados no dispositivo</div>
+                    <div class="badge-offline">Sessão Protegida</div>
+                    <div style="font-size: 0.72rem; color: #64748b;">Acesso restrito por senha</div>
                 </div>
             </div>
             <div class="status-item">
@@ -702,11 +826,13 @@
                 <button class="nav-btn" onclick="mudarSecao('vendas', this)"><span class="nav-icon">🛒</span> Vendas</button>
                 <button class="nav-btn" onclick="mudarSecao('stock', this)"><span class="nav-icon">📦</span> Produtos / Stock</button>
                 <button class="nav-btn" onclick="mudarSecao('clientes', this)"><span class="nav-icon">👥</span> Clientes</button>
-                <button class="nav-btn" onclick="mudarSecao('dividas', this)"><span class="nav-icon">📄</span> Dívidas</button>
+                <button class="nav-btn" onclick="mudarSecao('dividas', this)"><span class="nav-icon">📄</span> Dívidas Clientes</button>
                 <button class="nav-btn" onclick="mudarSecao('despesas', this)"><span class="nav-icon">💳</span> Despesas</button>
-                <button class="nav-btn" onclick="mudarSecao('funcionarios', this)"><span class="nav-icon">🧑‍💼</span> Funcionários</button>
+                <button class="nav-btn" onclick="mudarSecao('funcionarios', this)"><span class="nav-icon">🧑‍💼</span> Trabalhadores & Dívidas</button>
                 <button class="nav-btn" onclick="mudarSecao('relatorios', this)"><span class="nav-icon">📊</span> Relatórios</button>
                 <button class="nav-btn" onclick="mudarSecao('recibos', this)"><span class="nav-icon">🖨️</span> Recibos</button>
+                <button class="nav-btn" onclick="mudarSecao('seguranca', this)"><span class="nav-icon">🔐</span> Segurança & Backup</button>
+                <button class="nav-btn nav-btn-sair" onclick="bloquearSistema()"><span class="nav-icon">🚪</span> Bloquear / Sair</button>
             </div>
         </aside>
 
@@ -745,11 +871,11 @@
                         </div>
                     </div>
                     <div class="kpi-card kpi-vermelho">
-                        <div class="kpi-icon-circle">👥</div>
+                        <div class="kpi-icon-circle">🧑‍💼</div>
                         <div class="kpi-info">
-                            <h3>Dívidas Pendentes</h3>
-                            <div class="kpi-valor" id="kpi-dividas">0 MT</div>
-                            <div class="kpi-trend">A receber de clientes</div>
+                            <h3>Dívidas Trabalhadores</h3>
+                            <div class="kpi-valor" id="kpi-dividas-trab">0 MT</div>
+                            <div class="kpi-trend">Vales / Adiantamentos</div>
                         </div>
                     </div>
                 </div>
@@ -802,9 +928,7 @@
                         <div class="panel-header">
                             <span>🔔 Alertas Importantes</span>
                         </div>
-                        <div class="panel-body" id="lista-alertas">
-                            <!-- Preenchido via JS -->
-                        </div>
+                        <div class="panel-body" id="lista-alertas"></div>
                     </div>
                 </div>
 
@@ -825,9 +949,9 @@
                                     <span class="q-label">Stock</span>
                                     <div class="quick-line-vermelho"></div>
                                 </div>
-                                <div class="quick-card" onclick="irPara('clientes')">
-                                    <span class="q-icon">👥</span>
-                                    <span class="q-label">Clientes</span>
+                                <div class="quick-card" onclick="irPara('funcionarios')">
+                                    <span class="q-icon">🧑‍💼</span>
+                                    <span class="q-label">Trabalhadores</span>
                                     <div class="quick-line-azul"></div>
                                 </div>
                                 <div class="quick-card" onclick="irPara('despesas')">
@@ -840,9 +964,9 @@
                                     <span class="q-label">Relatórios</span>
                                     <div class="quick-line-azul"></div>
                                 </div>
-                                <div class="quick-card" onclick="irPara('funcionarios')">
-                                    <span class="q-icon">🧑‍💼</span>
-                                    <span class="q-label">Funcionários</span>
+                                <div class="quick-card" onclick="irPara('seguranca')">
+                                    <span class="q-icon">🔐</span>
+                                    <span class="q-label">Segurança</span>
                                     <div class="quick-line-vermelho"></div>
                                 </div>
                             </div>
@@ -991,7 +1115,7 @@
                 </div>
             </section>
 
-            <!-- 5. CLIENTES E DÍVIDAS -->
+            <!-- 5. CLIENTES E DÍVIDAS DE CLIENTES -->
             <section id="sec-clientes" class="secao">
                 <div class="section-banner">
                     <h2>👥 Carteira de Clientes</h2>
@@ -1032,26 +1156,62 @@
                 </div>
             </section>
 
-            <!-- 6. FUNCIONÁRIOS -->
+            <!-- 6. TRABALHADORES E DÍVIDAS DE TRABALHADORES -->
             <section id="sec-funcionarios" class="secao">
                 <div class="section-banner">
-                    <h2>🧑‍💼 Equipa e Funcionários</h2>
-                    <span>Gestão de colaboradores</span>
+                    <h2>🧑‍💼 Trabalhadores & Controlo de Dívidas</h2>
+                    <span>Equipa, salários e adiantamentos/vales</span>
                 </div>
+
+                <div class="sub-titulo">1. Registar Dívida / Adiantamento de Trabalhador</div>
+                <div class="form-card">
+                    <div class="form-group">
+                        <label>Nome do Trabalhador</label>
+                        <input type="text" id="div-trab-nome" list="lista-nomes-trab" placeholder="Escreva ou selecione o nome">
+                        <datalist id="lista-nomes-trab"></datalist>
+                    </div>
+                    <div class="form-group">
+                        <label>Motivo / Descrição</label>
+                        <input type="text" id="div-trab-motivo" placeholder="Ex: Adiantamento salarial, Vale, Empréstimo...">
+                    </div>
+                    <div class="form-group">
+                        <label>Valor da Dívida (MT)</label>
+                        <input type="number" id="div-trab-valor" placeholder="0.00" min="0" step="0.01">
+                    </div>
+                    <button class="btn-acao" onclick="adicionarDividaTrabalhador()">+ Registar Dívida</button>
+                </div>
+
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Data</th>
+                                <th>Trabalhador</th>
+                                <th>Motivo / Descrição</th>
+                                <th>Valor (MT)</th>
+                                <th>Estado</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tabela-dividas-trab-corpo"></tbody>
+                    </table>
+                </div>
+
+                <div class="sub-titulo">2. Lista de Trabalhadores Registados</div>
                 <div class="form-card">
                     <div class="form-group">
                         <label>Nome Completo</label>
-                        <input type="text" id="func-nome" placeholder="Nome do colaborador">
+                        <input type="text" id="func-nome" placeholder="Nome do trabalhador">
                     </div>
                     <div class="form-group">
                         <label>Cargo</label>
-                        <input type="text" id="func-cargo" placeholder="Ex: Técnico, Caixa">
+                        <input type="text" id="func-cargo" placeholder="Ex: Técnico, Caixa, Motorista">
                     </div>
                     <div class="form-group">
                         <label>Salário Mensal (MT)</label>
                         <input type="number" id="func-salario" placeholder="0.00">
                     </div>
-                    <button class="btn-acao" onclick="adicionarFuncionario()">Adicionar Funcionário</button>
+                    <button class="btn-acao" onclick="adicionarFuncionario()">Adicionar Trabalhador</button>
                 </div>
                 <div class="table-wrapper">
                     <table>
@@ -1060,6 +1220,7 @@
                                 <th>Nome</th>
                                 <th>Cargo</th>
                                 <th>Salário Mensal (MT)</th>
+                                <th>Total em Dívida (MT)</th>
                             </tr>
                         </thead>
                         <tbody id="tabela-func-corpo"></tbody>
@@ -1098,11 +1259,91 @@
                     </table>
                 </div>
             </section>
+
+            <!-- 8. SEGURANÇA & BACKUP -->
+            <section id="sec-seguranca" class="secao">
+                <div class="section-banner">
+                    <h2>🔐 Segurança e Cópia de Segurança</h2>
+                    <span>Altere a sua senha ou guarde os dados do negócio</span>
+                </div>
+
+                <div class="sub-titulo">Alterar Senha de Acesso</div>
+                <div class="form-card">
+                    <div class="form-group">
+                        <label>Nova Palavra-passe</label>
+                        <input type="password" id="nova-senha" placeholder="Digite a nova senha">
+                    </div>
+                    <div class="form-group">
+                        <label>Confirmar Nova Palavra-passe</label>
+                        <input type="password" id="confirma-senha" placeholder="Repita a nova senha">
+                    </div>
+                    <button class="btn-acao" onclick="alterarSenha()">Guardar Nova Senha</button>
+                </div>
+
+                <div class="sub-titulo">Cópia de Segurança (Backup dos Dados)</div>
+                <div class="form-card">
+                    <div style="flex: 1; min-width: 220px;">
+                        <p style="font-size: 0.9rem; color: #334155; margin-bottom: 10px;">
+                            Guarde uma cópia de segurança de todos os produtos, vendas e dívidas no seu telemóvel ou computador.
+                        </p>
+                        <button class="btn-acao" onclick="exportarBackup()">⬇️ Descarregar Backup (JSON)</button>
+                    </div>
+                    <div style="flex: 1; min-width: 220px;">
+                        <p style="font-size: 0.9rem; color: #334155; margin-bottom: 10px;">
+                            Restaurar dados a partir de um ficheiro guardado anteriormente:
+                        </p>
+                        <input type="file" id="ficheiro-backup" accept=".json" onchange="importarBackup(event)">
+                    </div>
+                </div>
+            </section>
         </main>
     </div>
 
     <script>
-        // DADOS GUARDADOS NO NAVEGADOR (LOCALSTORAGE)
+        // SISTEMA DE PROTEÇÃO POR SENHA
+        let senhaAtual = localStorage.getItem('marbef_senha') || 'Marbef2026';
+
+        function verificarLogin() {
+            const digitada = document.getElementById('input-senha').value;
+            const erro = document.getElementById('msg-erro-login');
+            if (digitada === senhaAtual) {
+                document.getElementById('tela-login').style.display = 'none';
+                document.getElementById('input-senha').value = '';
+                erro.style.display = 'none';
+                sessionStorage.setItem('marbef_autenticado', 'sim');
+            } else {
+                erro.style.display = 'block';
+            }
+        }
+
+        function bloquearSistema() {
+            sessionStorage.removeItem('marbef_autenticado');
+            document.getElementById('tela-login').style.display = 'flex';
+        }
+
+        if (sessionStorage.getItem('marbef_autenticado') === 'sim') {
+            document.getElementById('tela-login').style.display = 'none';
+        }
+
+        function alterarSenha() {
+            const nova = document.getElementById('nova-senha').value.trim();
+            const conf = document.getElementById('confirma-senha').value.trim();
+            if (!nova || nova.length < 4) {
+                alert('A nova senha deve ter pelo menos 4 caracteres.');
+                return;
+            }
+            if (nova !== conf) {
+                alert('As senhas não coincidem!');
+                return;
+            }
+            senhaAtual = nova;
+            localStorage.setItem('marbef_senha', senhaAtual);
+            document.getElementById('nova-senha').value = '';
+            document.getElementById('confirma-senha').value = '';
+            alert('Senha alterada com sucesso! Use a nova senha no próximo acesso.');
+        }
+
+        // DADOS GUARDADOS NO NAVEGADOR
         let produtos = JSON.parse(localStorage.getItem('marbef_produtos')) || [
             { id: 1, nome: 'Serviço Técnico Base', categoria: 'Serviços', preco: 1500, stock: 20 },
             { id: 2, nome: 'Material de Reposição', categoria: 'Peças', preco: 850, stock: 4 },
@@ -1112,14 +1353,17 @@
         let vendas = JSON.parse(localStorage.getItem('marbef_vendas')) || [];
         let despesas = JSON.parse(localStorage.getItem('marbef_despesas')) || [];
         let funcionarios = JSON.parse(localStorage.getItem('marbef_func')) || [
-            { nome: 'Admin Principal', cargo: 'Gestor Geral', salario: 25000 }
+            { nome: 'Carlos Tembe', cargo: 'Técnico', salario: 15000 },
+            { nome: 'Ana Mondlane', cargo: 'Atendimento', salario: 12000 }
         ];
+        let dividasTrabalhadores = JSON.parse(localStorage.getItem('marbef_div_trab')) || [];
 
         function guardarDados() {
             localStorage.setItem('marbef_produtos', JSON.stringify(produtos));
             localStorage.setItem('marbef_vendas', JSON.stringify(vendas));
             localStorage.setItem('marbef_despesas', JSON.stringify(despesas));
             localStorage.setItem('marbef_func', JSON.stringify(funcionarios));
+            localStorage.setItem('marbef_div_trab', JSON.stringify(dividasTrabalhadores));
             atualizarTudo();
         }
 
@@ -1135,12 +1379,13 @@
         function irPara(id) {
             const botoes = document.querySelectorAll('.nav-btn');
             botoes.forEach(b => {
-                if (b.getAttribute('onclick').includes(id)) {
+                if (b.getAttribute('onclick') && b.getAttribute('onclick').includes(id)) {
                     mudarSecao(id, b);
                 }
             });
         }
 
+        // STOCK
         function adicionarProduto() {
             const nome = document.getElementById('prod-nome').value.trim();
             const categoria = document.getElementById('prod-cat').value.trim() || 'Geral';
@@ -1148,18 +1393,11 @@
             const stock = parseInt(document.getElementById('prod-qtd').value);
 
             if (!nome || isNaN(preco) || isNaN(stock)) {
-                alert('Por favor, preencha o nome, o preço e a quantidade do produto.');
+                alert('Preencha o nome, o preço e a quantidade do produto.');
                 return;
             }
 
-            produtos.push({
-                id: Date.now(),
-                nome,
-                categoria,
-                preco,
-                stock
-            });
-
+            produtos.push({ id: Date.now(), nome, categoria, preco, stock });
             document.getElementById('prod-nome').value = '';
             document.getElementById('prod-cat').value = '';
             document.getElementById('prod-preco').value = '';
@@ -1181,6 +1419,7 @@
             }
         }
 
+        // VENDAS
         function registarVenda() {
             const prodIndex = document.getElementById('venda-produto').value;
             const qtd = parseInt(document.getElementById('venda-qtd').value);
@@ -1199,10 +1438,9 @@
             }
 
             prod.stock -= qtd;
-            const agora = new Date().toLocaleString('pt-PT');
             vendas.unshift({
                 id: Date.now(),
-                data: agora,
+                data: new Date().toLocaleString('pt-PT'),
                 produto: prod.nome,
                 qtd,
                 cliente,
@@ -1222,6 +1460,7 @@
             guardarDados();
         }
 
+        // DESPESAS
         function adicionarDespesa() {
             const desc = document.getElementById('desp-desc').value.trim();
             const valor = parseFloat(document.getElementById('desp-valor').value);
@@ -1242,12 +1481,16 @@
             guardarDados();
         }
 
+        // TRABALHADORES E DÍVIDAS DE TRABALHADORES
         function adicionarFuncionario() {
             const nome = document.getElementById('func-nome').value.trim();
             const cargo = document.getElementById('func-cargo').value.trim() || 'Colaborador';
             const salario = parseFloat(document.getElementById('func-salario').value) || 0;
 
-            if (!nome) return;
+            if (!nome) {
+                alert('Insira o nome do trabalhador.');
+                return;
+            }
             funcionarios.push({ nome, cargo, salario });
             document.getElementById('func-nome').value = '';
             document.getElementById('func-cargo').value = '';
@@ -1255,6 +1498,44 @@
             guardarDados();
         }
 
+        function adicionarDividaTrabalhador() {
+            const nome = document.getElementById('div-trab-nome').value.trim();
+            const motivo = document.getElementById('div-trab-motivo').value.trim() || 'Adiantamento / Vale';
+            const valor = parseFloat(document.getElementById('div-trab-valor').value);
+
+            if (!nome || isNaN(valor) || valor <= 0) {
+                alert('Preencha o nome do trabalhador e o valor da dívida em MT.');
+                return;
+            }
+
+            dividasTrabalhadores.unshift({
+                id: Date.now(),
+                data: new Date().toLocaleDateString('pt-PT'),
+                nome,
+                motivo,
+                valor,
+                pago: false
+            });
+
+            document.getElementById('div-trab-nome').value = '';
+            document.getElementById('div-trab-motivo').value = '';
+            document.getElementById('div-trab-valor').value = '';
+            guardarDados();
+        }
+
+        function liquidarDividaTrabalhador(index) {
+            dividasTrabalhadores[index].pago = true;
+            guardarDados();
+        }
+
+        function removerDividaTrabalhador(index) {
+            if (confirm('Apagar este registo de dívida?')) {
+                dividasTrabalhadores.splice(index, 1);
+                guardarDados();
+            }
+        }
+
+        // RECIBOS
         function imprimirRecibo(venda) {
             const janela = window.open('', '_blank', 'width=420,height=600');
             janela.document.write(`
@@ -1280,8 +1561,47 @@
             janela.document.close();
         }
 
+        // BACKUP
+        function exportarBackup() {
+            const dados = {
+                produtos,
+                vendas,
+                despesas,
+                funcionarios,
+                dividasTrabalhadores
+            };
+            const blob = new Blob([JSON.stringify(dados, null, 2)], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'Backup_Marbef_Services_' + new Date().toISOString().slice(0, 10) + '.json';
+            a.click();
+        }
+
+        function importarBackup(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                try {
+                    const dados = JSON.parse(e.target.result);
+                    if (dados.produtos) produtos = dados.produtos;
+                    if (dados.vendas) vendas = dados.vendas;
+                    if (dados.despesas) despesas = dados.despesas;
+                    if (dados.funcionarios) funcionarios = dados.funcionarios;
+                    if (dados.dividasTrabalhadores) dividasTrabalhadores = dados.dividasTrabalhadores;
+                    guardarDados();
+                    alert('Dados restaurados com sucesso!');
+                } catch (err) {
+                    alert('Ficheiro de backup inválido.');
+                }
+            };
+            reader.readAsText(file);
+        }
+
+        // ATUALIZAR INTERFACE
         function atualizarTudo() {
-            // Atualizar Tabela de Stock
+            // Stock
             const tbodyStock = document.getElementById('tabela-stock-corpo');
             const selectVenda = document.getElementById('venda-produto');
             tbodyStock.innerHTML = '';
@@ -1333,7 +1653,7 @@
                 }
             });
 
-            // Atualizar Vendas, Dívidas, Clientes e Recibos
+            // Vendas, Dívidas Clientes e Recibos
             const tbodyVendas = document.getElementById('tabela-vendas-corpo');
             const tbodyDividas = document.getElementById('tabela-dividas-corpo');
             const tbodyRecibos = document.getElementById('tabela-recibos-corpo');
@@ -1345,13 +1665,12 @@
             tbodyClientes.innerHTML = '';
 
             let totalVendas = 0;
-            let totalDividas = 0;
+            let totalDividasClientes = 0;
             let mapaClientes = {};
 
             vendas.forEach((v, idx) => {
                 totalVendas += v.total;
-                if (!v.pago) totalDividas += v.total;
-
+                if (!v.pago) totalDividasClientes += v.total;
                 mapaClientes[v.cliente] = (mapaClientes[v.cliente] || 0) + v.total;
 
                 tbodyVendas.innerHTML += `
@@ -1383,18 +1702,8 @@
                             <td><strong>${v.cliente}</strong></td>
                             <td>${v.produto} (${v.qtd}x)</td>
                             <td style="color: #d61c1c;"><strong>${v.total.toFixed(2)} MT</strong></td>
-                            <td><button class="btn-acao" style="padding: 5px 10px; font-size: 0.8rem;" onclick="liquidarDivida(${idx})">Marcar Pago</button></td>
+                            <td><button class="btn-verde" onclick="liquidarDivida(${idx})">Marcar Pago</button></td>
                         </tr>
-                    `;
-
-                    alertasHtml += `
-                        <div class="alerta-item">
-                            <div class="alerta-esq">
-                                <span class="badge-alerta" style="background: #ea580c;">!</span>
-                                <span>Dívida pendente: ${v.cliente}</span>
-                            </div>
-                            <strong style="color: #ea580c;">${v.total.toFixed(2)} MT</strong>
-                        </div>
                     `;
                 }
             });
@@ -1409,7 +1718,7 @@
                 `;
             });
 
-            // Atualizar Despesas
+            // Despesas
             const tbodyDesp = document.getElementById('tabela-despesas-corpo');
             tbodyDesp.innerHTML = '';
             let totalDespesas = 0;
@@ -1425,25 +1734,74 @@
                 `;
             });
 
-            // Atualizar Funcionários
+            // Dívidas dos Trabalhadores
+            const tbodyDivTrab = document.getElementById('tabela-dividas-trab-corpo');
+            tbodyDivTrab.innerHTML = '';
+            let totalDividasTrab = 0;
+            let dividasPorTrab = {};
+
+            dividasTrabalhadores.forEach((dt, idx) => {
+                if (!dt.pago) {
+                    totalDividasTrab += dt.valor;
+                    dividasPorTrab[dt.nome.toLowerCase()] = (dividasPorTrab[dt.nome.toLowerCase()] || 0) + dt.valor;
+
+                    alertasHtml += `
+                        <div class="alerta-item">
+                            <div class="alerta-esq">
+                                <span class="badge-alerta" style="background: #ea580c;">!</span>
+                                <span>Dívida trabalhador: ${dt.nome}</span>
+                            </div>
+                            <strong style="color: #ea580c;">${dt.valor.toFixed(2)} MT</strong>
+                        </div>
+                    `;
+                }
+
+                tbodyDivTrab.innerHTML += `
+                    <tr>
+                        <td>${dt.data}</td>
+                        <td><strong>${dt.nome}</strong></td>
+                        <td>${dt.motivo}</td>
+                        <td style="color: ${dt.pago ? '#16a34a' : '#d61c1c'};"><strong>${dt.valor.toFixed(2)} MT</strong></td>
+                        <td>
+                            <span class="status-pill ${dt.pago ? 'pill-ok' : 'pill-baixo'}">
+                                ${dt.pago ? 'Liquidado' : 'Em Dívida'}
+                            </span>
+                        </td>
+                        <td>
+                            ${!dt.pago ? `<button class="btn-verde" onclick="liquidarDividaTrabalhador(${idx})">Marcar Pago</button>` : ''}
+                            <button class="btn-vermelho" onclick="removerDividaTrabalhador(${idx})">Apagar</button>
+                        </td>
+                    </tr>
+                `;
+            });
+
+            // Lista de Trabalhadores
             const tbodyFunc = document.getElementById('tabela-func-corpo');
+            const datalistTrab = document.getElementById('lista-nomes-trab');
             tbodyFunc.innerHTML = '';
+            datalistTrab.innerHTML = '';
+
             funcionarios.forEach(f => {
+                const dividaAtual = dividasPorTrab[f.nome.toLowerCase()] || 0;
+                datalistTrab.innerHTML += `<option value="${f.nome}">`;
                 tbodyFunc.innerHTML += `
                     <tr>
                         <td><strong>${f.nome}</strong></td>
                         <td>${f.cargo}</td>
                         <td>${f.salario.toFixed(2)} MT</td>
+                        <td style="color: ${dividaAtual > 0 ? '#d61c1c' : '#16a34a'}; font-weight: bold;">
+                            ${dividaAtual.toFixed(2)} MT
+                        </td>
                     </tr>
                 `;
             });
 
-            // KPIs e Alertas
+            // KPIs
             const lucro = totalVendas - totalDespesas;
             document.getElementById('kpi-vendas').innerText = totalVendas.toLocaleString('pt-PT') + ' MT';
             document.getElementById('kpi-lucro').innerText = lucro.toLocaleString('pt-PT') + ' MT';
             document.getElementById('kpi-produtos').innerText = totalUnidades;
-            document.getElementById('kpi-dividas').innerText = totalDividas.toLocaleString('pt-PT') + ' MT';
+            document.getElementById('kpi-dividas-trab').innerText = totalDividasTrab.toLocaleString('pt-PT') + ' MT';
 
             if (!alertasHtml) {
                 alertasHtml = `
@@ -1461,12 +1819,12 @@
                 <p><strong>Receita Total Acumulada:</strong> ${totalVendas.toFixed(2)} MT</p>
                 <p><strong>Total de Despesas Registadas:</strong> ${totalDespesas.toFixed(2)} MT</p>
                 <p><strong>Lucro Líquido Operacional:</strong> <span style="color: ${lucro >= 0 ? '#16a34a' : '#d61c1c'}; font-weight: bold;">${lucro.toFixed(2)} MT</span></p>
-                <p><strong>Total em Dívidas de Clientes:</strong> ${totalDividas.toFixed(2)} MT</p>
+                <p><strong>Dívidas de Clientes Pendentes:</strong> ${totalDividasClientes.toFixed(2)} MT</p>
+                <p><strong>Dívidas de Trabalhadores (Vales):</strong> ${totalDividasTrab.toFixed(2)} MT</p>
                 <p><strong>Total de Unidades em Stock:</strong> ${totalUnidades} unidades</p>
             `;
         }
 
-        // Relógio no cabeçalho
         setInterval(() => {
             const agora = new Date();
             document.getElementById('data-hora-atual').innerText =
