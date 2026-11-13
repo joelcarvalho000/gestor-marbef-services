@@ -1074,7 +1074,7 @@
                                 <th>Cliente</th>
                                 <th>Pagamento</th>
                                 <th>Total (MT)</th>
-                                <th>Recibo</th>
+                                <th>Ações</th>
                             </tr>
                         </thead>
                         <tbody id="tabela-vendas-corpo"></tbody>
@@ -1108,6 +1108,7 @@
                                 <th>Data</th>
                                 <th>Descrição</th>
                                 <th>Valor (MT)</th>
+                                <th>Ação</th>
                             </tr>
                         </thead>
                         <tbody id="tabela-despesas-corpo"></tbody>
@@ -1221,6 +1222,7 @@
                                 <th>Cargo</th>
                                 <th>Salário Mensal (MT)</th>
                                 <th>Total em Dívida (MT)</th>
+                                <th>Ação</th>
                             </tr>
                         </thead>
                         <tbody id="tabela-func-corpo"></tbody>
@@ -1252,7 +1254,7 @@
                                 <th>Data</th>
                                 <th>Cliente</th>
                                 <th>Total (MT)</th>
-                                <th>Imprimir</th>
+                                <th>Ações</th>
                             </tr>
                         </thead>
                         <tbody id="tabela-recibos-corpo"></tbody>
@@ -1413,7 +1415,7 @@
         }
 
         function removerProduto(index) {
-            if (confirm('Remover este produto da tabela de stock?')) {
+            if (confirm('Tem certeza que deseja apagar este produto do stock?')) {
                 produtos.splice(index, 1);
                 guardarDados();
             }
@@ -1460,6 +1462,13 @@
             guardarDados();
         }
 
+        function removerVenda(index) {
+            if (confirm('Tem certeza que deseja apagar este registo de venda?')) {
+                vendas.splice(index, 1);
+                guardarDados();
+            }
+        }
+
         // DESPESAS
         function adicionarDespesa() {
             const desc = document.getElementById('desp-desc').value.trim();
@@ -1481,6 +1490,13 @@
             guardarDados();
         }
 
+        function removerDespesa(index) {
+            if (confirm('Tem certeza que deseja apagar esta despesa?')) {
+                despesas.splice(index, 1);
+                guardarDados();
+            }
+        }
+
         // TRABALHADORES E DÍVIDAS DE TRABALHADORES
         function adicionarFuncionario() {
             const nome = document.getElementById('func-nome').value.trim();
@@ -1496,6 +1512,13 @@
             document.getElementById('func-cargo').value = '';
             document.getElementById('func-salario').value = '';
             guardarDados();
+        }
+
+        function removerFuncionario(index) {
+            if (confirm('Tem certeza que deseja apagar este trabalhador da lista?')) {
+                funcionarios.splice(index, 1);
+                guardarDados();
+            }
         }
 
         function adicionarDividaTrabalhador() {
@@ -1529,7 +1552,7 @@
         }
 
         function removerDividaTrabalhador(index) {
-            if (confirm('Apagar este registo de dívida?')) {
+            if (confirm('Tem certeza que deseja apagar este registo de dívida?')) {
                 dividasTrabalhadores.splice(index, 1);
                 guardarDados();
             }
@@ -1681,7 +1704,10 @@
                         <td>${v.cliente}</td>
                         <td>${v.pagamento}</td>
                         <td><strong>${v.total.toFixed(2)} MT</strong></td>
-                        <td><button class="btn-acao" style="padding: 5px 10px; font-size: 0.8rem;" onclick='imprimirRecibo(${JSON.stringify(v)})'>🖨️ Recibo</button></td>
+                        <td>
+                            <button class="btn-acao" style="padding: 5px 8px; font-size: 0.75rem;" onclick='imprimirRecibo(${JSON.stringify(v)})'>🖨️</button>
+                            <button class="btn-vermelho" style="padding: 5px 8px; font-size: 0.75rem;" onclick="removerVenda(${idx})">Apagar</button>
+                        </td>
                     </tr>
                 `;
 
@@ -1691,7 +1717,10 @@
                         <td>${v.data}</td>
                         <td>${v.cliente}</td>
                         <td><strong>${v.total.toFixed(2)} MT</strong></td>
-                        <td><button class="btn-acao" style="padding: 5px 10px; font-size: 0.8rem;" onclick='imprimirRecibo(${JSON.stringify(v)})'>Imprimir</button></td>
+                        <td>
+                            <button class="btn-acao" style="padding: 5px 10px; font-size: 0.8rem;" onclick='imprimirRecibo(${JSON.stringify(v)})'>Imprimir</button>
+                            <button class="btn-vermelho" style="padding: 5px 10px; font-size: 0.8rem;" onclick="removerVenda(${idx})">Apagar</button>
+                        </td>
                     </tr>
                 `;
 
@@ -1723,13 +1752,14 @@
             tbodyDesp.innerHTML = '';
             let totalDespesas = 0;
 
-            despesas.forEach(d => {
+            despesas.forEach((d, idx) => {
                 totalDespesas += d.valor;
                 tbodyDesp.innerHTML += `
                     <tr>
                         <td>${d.data}</td>
                         <td>${d.desc}</td>
                         <td style="color: #d61c1c;"><strong>- ${d.valor.toFixed(2)} MT</strong></td>
+                        <td><button class="btn-vermelho" onclick="removerDespesa(${idx})">Apagar</button></td>
                     </tr>
                 `;
             });
@@ -1781,7 +1811,7 @@
             tbodyFunc.innerHTML = '';
             datalistTrab.innerHTML = '';
 
-            funcionarios.forEach(f => {
+            funcionarios.forEach((f, idx) => {
                 const dividaAtual = dividasPorTrab[f.nome.toLowerCase()] || 0;
                 datalistTrab.innerHTML += `<option value="${f.nome}">`;
                 tbodyFunc.innerHTML += `
@@ -1791,6 +1821,9 @@
                         <td>${f.salario.toFixed(2)} MT</td>
                         <td style="color: ${dividaAtual > 0 ? '#d61c1c' : '#16a34a'}; font-weight: bold;">
                             ${dividaAtual.toFixed(2)} MT
+                        </td>
+                        <td>
+                            <button class="btn-vermelho" onclick="removerFuncionario(${idx})">Apagar</button>
                         </td>
                     </tr>
                 `;
