@@ -34,7 +34,7 @@
             min-height: 100vh;
         }
 
-        /* TELA DE LOGIN / PROTEÇÃO POR SENHA */
+        /* TELA DE LOGIN */
         #tela-login {
             position: fixed;
             inset: 0;
@@ -110,10 +110,10 @@
             display: none;
         }
 
-        /* CABEÇALHO CORPORATIVO */
+        /* CABEÇALHO */
         header {
             background: #ffffff;
-            padding: 12px 24px;
+            padding: 12px 20px;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -121,72 +121,48 @@
             gap: 15px;
             border-bottom: 4px solid var(--vermelho);
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
-            position: relative;
-        }
-
-        header::after {
-            content: '';
-            position: absolute;
-            bottom: -8px;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: var(--azul-escuro);
-        }
-
-        .brand-area {
-            display: flex;
-            align-items: center;
-            gap: 18px;
         }
 
         .title-box h1 {
             color: var(--azul-escuro);
-            font-size: 1.55rem;
+            font-size: 1.35rem;
             font-weight: 800;
             line-height: 1.2;
         }
 
         .title-box p {
             color: var(--azul-medio);
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             font-style: italic;
             font-weight: 600;
         }
 
-        .status-bar {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            flex-wrap: wrap;
-        }
-
-        .status-item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            padding-right: 16px;
-            border-right: 1px solid var(--borda);
-            font-size: 0.82rem;
-            color: var(--azul-escuro);
-            font-weight: 600;
-        }
-
-        .status-item:last-child {
-            border-right: none;
-            padding-right: 0;
-        }
-
-        .badge-offline {
+        .badge-online {
             color: var(--verde);
             font-weight: 700;
+            font-size: 0.85rem;
         }
 
         /* LAYOUT PRINCIPAL */
         .app-container {
             display: flex;
             flex: 1;
-            margin-top: 4px;
+            flex-direction: row;
+        }
+
+        @media (max-width: 768px) {
+            .app-container {
+                flex-direction: column;
+            }
+            aside {
+                width: 100% !important;
+                flex-direction: row !important;
+                overflow-x: auto;
+                padding: 10px !important;
+            }
+            .nav-links {
+                flex-direction: row !important;
+            }
         }
 
         /* MENU LATERAL */
@@ -211,15 +187,16 @@
             background: transparent;
             border: none;
             color: #e2e8f0;
-            padding: 12px 15px;
+            padding: 10px 14px;
             border-radius: 8px;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             font-weight: 600;
             text-align: left;
             cursor: pointer;
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
+            white-space: nowrap;
             transition: all 0.2s ease;
         }
 
@@ -242,133 +219,114 @@
             color: #fecaca;
         }
 
-        .nav-btn-sair:hover {
-            background: var(--vermelho);
-            color: #ffffff;
-        }
-
-        .nav-icon {
-            font-size: 1.15rem;
-            width: 22px;
-            text-align: center;
-        }
-
-        /* CONTEÚDO PRINCIPAL */
+        /* CONTEÚDO */
         main {
             flex: 1;
-            padding: 22px;
+            padding: 18px;
             overflow-y: auto;
         }
 
         .secao {
             display: none;
-            animation: fadeIn 0.25s ease;
         }
 
         .secao.ativa {
             display: block;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(4px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
         .section-banner {
             background: linear-gradient(90deg, var(--azul-escuro) 0%, var(--azul-medio) 100%);
             color: #ffffff;
-            padding: 12px 20px;
+            padding: 12px 18px;
             border-radius: 10px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 20px;
-            box-shadow: 0 3px 8px rgba(8, 35, 86, 0.2);
+            margin-bottom: 18px;
         }
 
         .section-banner h2 {
-            font-size: 1.15rem;
-            display: flex;
-            align-items: center;
-            gap: 10px;
+            font-size: 1.1rem;
         }
 
-        .section-banner span {
-            font-size: 0.88rem;
-            font-style: italic;
-            opacity: 0.9;
-        }
-
-        /* CARTÕES KPI */
+        /* KPI CARDS */
         .kpi-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-            gap: 16px;
-            margin-bottom: 22px;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 14px;
+            margin-bottom: 18px;
         }
 
         .kpi-card {
             border-radius: 12px;
-            padding: 18px;
+            padding: 16px;
             color: #ffffff;
             display: flex;
             align-items: center;
-            gap: 15px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+            gap: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
 
-        .kpi-azul {
-            background: linear-gradient(135deg, #092b6b 0%, #1348a8 100%);
-        }
+        .kpi-azul { background: linear-gradient(135deg, #092b6b 0%, #1348a8 100%); }
+        .kpi-vermelho { background: linear-gradient(135deg, #b81414 0%, #e11d1d 100%); }
 
-        .kpi-vermelho {
-            background: linear-gradient(135deg, #b81414 0%, #e11d1d 100%);
-        }
-
-        .kpi-icon-circle {
-            width: 52px;
-            height: 52px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.18);
+        .kpi-icon {
+            font-size: 1.5rem;
+            background: rgba(255, 255, 255, 0.2);
+            width: 45px;
+            height: 45px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.6rem;
-            flex-shrink: 0;
+            border-radius: 50%;
         }
 
         .kpi-info h3 {
-            font-size: 0.85rem;
-            font-weight: 600;
-            opacity: 0.92;
-            margin-bottom: 4px;
+            font-size: 0.78rem;
+            opacity: 0.9;
         }
 
         .kpi-valor {
-            font-size: 1.45rem;
+            font-size: 1.3rem;
             font-weight: 800;
-            line-height: 1.2;
         }
 
-        .alerta-item {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 12px 0;
-            border-bottom: 1px solid #f1f5f9;
-            font-size: 0.9rem;
+        /* TABELAS */
+        .card-tabela {
+            background: #ffffff;
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            margin-bottom: 15px;
+            overflow-x: auto;
         }
 
-        .alerta-item:last-child {
-            border-bottom: none;
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.88rem;
+            text-align: left;
         }
 
-        .alerta-esq {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-weight: 600;
+        th, td {
+            padding: 10px 12px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        th {
+            background: var(--azul-claro);
             color: var(--azul-escuro);
+            font-weight: 700;
+        }
+
+        .btn-acao {
+            background: var(--azul-medio);
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.8rem;
         }
     </style>
 </head>
@@ -387,56 +345,107 @@
 
     <!-- CABEÇALHO -->
     <header>
-        <div class="brand-area">
-            <div class="title-box">
-                <h1>Marbef Services SU Lda</h1>
-                <p>Sistema de Gestão Integrado</p>
-            </div>
+        <div class="title-box">
+            <h1>Marbef Services SU Lda</h1>
+            <p>Sistema de Gestão Integrado</p>
         </div>
-        <div class="status-bar">
-            <div class="status-item">
-                <span>Estado:</span>
-                <span class="badge-offline">● Online / Pronto</span>
-            </div>
-        </div>
+        <div class="badge-online">● Online</div>
     </header>
 
-    <!-- CONTEÚDO PRINCIPAL -->
+    <!-- CONTAINER -->
     <div class="app-container">
         <aside>
             <div class="nav-links">
-                <button class="nav-btn ativo" onclick="mudarSecao('dashboard', this)">
-                    <span class="nav-icon">📊</span> Dashboard
-                </button>
+                <button class="nav-btn ativo" onclick="mudarSecao('dashboard', this)">📊 Dashboard</button>
+                <button class="nav-btn" onclick="mudarSecao('stock', this)">📦 Stock</button>
+                <button class="nav-btn" onclick="mudarSecao('dividas', this)">💰 Dívidas</button>
             </div>
-            <button class="nav-btn nav-btn-sair" onclick="fazerLogout()">
-                <span class="nav-icon">🔒</span> Bloquear
-            </button>
+            <button class="nav-btn nav-btn-sair" onclick="fazerLogout()">🔒 Bloquear</button>
         </aside>
 
         <main>
-            <!-- SECÃO DASHBOARD -->
+            <!-- DASHBOARD -->
             <section id="dashboard" class="secao ativa">
                 <div class="section-banner">
-                    <h2><span>📊</span> Painel Principal</h2>
-                    <span>Visão geral do negócio</span>
+                    <h2>📊 Painel Principal</h2>
+                    <span>Visão geral</span>
                 </div>
-
                 <div class="kpi-grid">
                     <div class="kpi-card kpi-azul">
-                        <div class="kpi-icon-circle">📦</div>
+                        <div class="kpi-icon">📦</div>
                         <div class="kpi-info">
-                            <h3>Produtos em Stock</h3>
-                            <div class="kpi-valor">0</div>
+                            <h3>Produtos Registados</h3>
+                            <div class="kpi-valor" id="kpi-stock">0</div>
                         </div>
                     </div>
                     <div class="kpi-card kpi-vermelho">
-                        <div class="kpi-icon-circle">💰</div>
+                        <div class="kpi-icon">💰</div>
                         <div class="kpi-info">
-                            <h3>Dívidas Pendentes</h3>
-                            <div class="kpi-valor">0 MT</div>
+                            <h3>Total em Dívida</h3>
+                            <div class="kpi-valor" id="kpi-divida">0 MT</div>
                         </div>
                     </div>
+                </div>
+            </section>
+
+            <!-- STOCK -->
+            <section id="stock" class="secao">
+                <div class="section-banner">
+                    <h2>📦 Gestão de Stock</h2>
+                    <span>Materiais de construção</span>
+                </div>
+                <div class="card-tabela">
+                    <h3>Inventário Atual</h3>
+                    <br>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Produto</th>
+                                <th>Quantidade</th>
+                                <th>Preço Unitário</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tabela-stock-corpo">
+                            <tr>
+                                <td>Cimento Cimentos de Moçambique</td>
+                                <td>50 sacos</td>
+                                <td>550 MT</td>
+                            </tr>
+                            <tr>
+                                <td>Chapas de Zinco</td>
+                                <td>20 unidades</td>
+                                <td>850 MT</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- DÍVIDAS -->
+            <section id="dividas" class="secao" style="display: none;">
+                <div class="section-banner">
+                    <h2>💰 Controlo de Dívidas / Clientes</h2>
+                    <span>Créditos pendentes</span>
+                </div>
+                <div class="card-tabela">
+                    <h3>Lista de Clientes Devedores</h3>
+                    <br>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Cliente</th>
+                                <th>Descrição</th>
+                                <th>Valor em Dívida</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Cliente Exemplo</td>
+                                <td>Compra de Blocos</td>
+                                <td>2.500 MT</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </section>
         </main>
@@ -445,7 +454,6 @@
     <script>
         function fazerLogin() {
             const senha = document.getElementById('input-senha').value;
-            // Defina aqui a sua senha simples (ex: "1234" ou outra preferida)
             if (senha === "1234" || senha === "marbef2026") {
                 document.getElementById('tela-login').style.display = 'none';
             } else {
@@ -459,11 +467,21 @@
             document.getElementById('tela-login').style.display = 'flex';
         }
 
-        // Permitir entrar com a tecla Enter
+        function mudarSecao(idSecao, elementoBtn) {
+            document.querySelectorAll('.secao').forEach(s => {
+                s.classList.remove('ativa');
+                s.style.display = 'none';
+            });
+            const alvo = document.getElementById(idSecao);
+            alvo.classList.add('ativa');
+            alvo.style.display = 'block';
+
+            document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('ativo'));
+            if(elementoBtn) elementoBtn.classList.add('ativo');
+        }
+
         document.getElementById('input-senha').addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                fazerLogin();
-            }
+            if (e.key === 'Enter') fazerLogin();
         });
     </script>
 </body>
