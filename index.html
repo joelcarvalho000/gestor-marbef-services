@@ -13,7 +13,6 @@
             --vermelho-escuro: #a81010;
             --dourado: #D4AF37;
             --verde: #16a34a;
-            --laranja: #ea580c;
             --cinza-fundo: #f1f5f9;
             --texto-escuro: #0f172a;
             --borda: #cbd5e1;
@@ -95,11 +94,6 @@
             font-size: 1rem;
             font-weight: 700;
             cursor: pointer;
-            transition: opacity 0.2s;
-        }
-
-        .btn-entrar:hover {
-            opacity: 0.92;
         }
 
         .erro-login {
@@ -110,29 +104,48 @@
             display: none;
         }
 
-        /* CABEÇALHO */
+        /* CABEÇALHO COM LOGÓTIPO */
         header {
             background: #ffffff;
             padding: 12px 20px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 15px;
             border-bottom: 4px solid var(--vermelho);
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
         }
 
+        .brand-box {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        /* Logótipo em formato de brasão corporativo */
+        .logo-emblem {
+            background: linear-gradient(135deg, var(--azul-escuro), var(--vermelho));
+            color: white;
+            font-weight: 900;
+            font-size: 1.1rem;
+            width: 42px;
+            height: 42px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
         .title-box h1 {
             color: var(--azul-escuro);
-            font-size: 1.35rem;
+            font-size: 1.25rem;
             font-weight: 800;
-            line-height: 1.2;
+            line-height: 1.1;
         }
 
         .title-box p {
             color: var(--azul-medio);
-            font-size: 0.8rem;
+            font-size: 0.78rem;
             font-style: italic;
             font-weight: 600;
         }
@@ -140,14 +153,13 @@
         .badge-online {
             color: var(--verde);
             font-weight: 700;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
         }
 
         /* LAYOUT PRINCIPAL */
         .app-container {
             display: flex;
             flex: 1;
-            flex-direction: row;
         }
 
         @media (max-width: 768px) {
@@ -167,14 +179,13 @@
 
         /* MENU LATERAL */
         aside {
-            width: 245px;
+            width: 240px;
             background: linear-gradient(180deg, #061d4a 0%, #0b2e73 100%);
             color: #ffffff;
-            padding: 18px 12px;
+            padding: 15px 10px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            box-shadow: 3px 0 12px rgba(0, 0, 0, 0.15);
         }
 
         .nav-links {
@@ -197,25 +208,17 @@
             align-items: center;
             gap: 10px;
             white-space: nowrap;
-            transition: all 0.2s ease;
         }
 
-        .nav-btn:hover {
-            background: rgba(255, 255, 255, 0.12);
-            color: #ffffff;
-        }
-
-        .nav-btn.ativo {
-            background: linear-gradient(90deg, var(--vermelho) 0%, #b91c1c 100%);
+        .nav-btn:hover, .nav-btn.ativo {
+            background: var(--vermelho);
             color: #ffffff;
             font-weight: 700;
-            box-shadow: 0 4px 10px rgba(214, 28, 28, 0.4);
         }
 
         .nav-btn-sair {
             margin-top: 15px;
             background: rgba(214, 28, 28, 0.2);
-            border: 1px solid rgba(214, 28, 28, 0.5);
             color: #fecaca;
         }
 
@@ -226,11 +229,11 @@
             overflow-y: auto;
         }
 
-        .secao {
+        .conteudo-secao {
             display: none;
         }
 
-        .secao.ativa {
+        .conteudo-secao.ativa {
             display: block;
         }
 
@@ -239,94 +242,56 @@
             color: #ffffff;
             padding: 12px 18px;
             border-radius: 10px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
             margin-bottom: 18px;
+            font-size: 1.05rem;
+            font-weight: 700;
         }
 
-        .section-banner h2 {
-            font-size: 1.1rem;
-        }
-
-        /* KPI CARDS */
         .kpi-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
             gap: 14px;
             margin-bottom: 18px;
         }
 
         .kpi-card {
-            border-radius: 12px;
+            border-radius: 10px;
             padding: 16px;
             color: #ffffff;
             display: flex;
             align-items: center;
             gap: 12px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
 
-        .kpi-azul { background: linear-gradient(135deg, #092b6b 0%, #1348a8 100%); }
-        .kpi-vermelho { background: linear-gradient(135deg, #b81414 0%, #e11d1d 100%); }
+        .kpi-azul { background: linear-gradient(135deg, #092b6b, #1348a8); }
+        .kpi-vermelho { background: linear-gradient(135deg, #b81414, #e11d1d); }
 
-        .kpi-icon {
-            font-size: 1.5rem;
-            background: rgba(255, 255, 255, 0.2);
-            width: 45px;
-            height: 45px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-        }
+        .kpi-info h3 { font-size: 0.75rem; opacity: 0.9; }
+        .kpi-valor { font-size: 1.25rem; font-weight: 800; }
 
-        .kpi-info h3 {
-            font-size: 0.78rem;
-            opacity: 0.9;
-        }
-
-        .kpi-valor {
-            font-size: 1.3rem;
-            font-weight: 800;
-        }
-
-        /* TABELAS */
         .card-tabela {
             background: #ffffff;
             border-radius: 10px;
             padding: 15px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-            margin-bottom: 15px;
             overflow-x: auto;
         }
 
         table {
             width: 100%;
             border-collapse: collapse;
-            font-size: 0.88rem;
+            font-size: 0.85rem;
             text-align: left;
         }
 
         th, td {
-            padding: 10px 12px;
+            padding: 10px;
             border-bottom: 1px solid #e2e8f0;
         }
 
         th {
             background: var(--azul-claro);
             color: var(--azul-escuro);
-            font-weight: 700;
-        }
-
-        .btn-acao {
-            background: var(--azul-medio);
-            color: white;
-            border: none;
-            padding: 6px 12px;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 0.8rem;
         }
     </style>
 </head>
@@ -336,7 +301,7 @@
     <div id="tela-login">
         <div class="login-card">
             <h2>Marbef Services</h2>
-            <p>Insira a senha de acesso ao gestor</p>
+            <p>Insira a senha de acesso (Senha padrão: <b>1234</b>)</p>
             <input type="password" id="input-senha" class="login-input" placeholder="Senha..." autofocus>
             <button class="btn-entrar" onclick="fazerLogin()">Entrar no Sistema</button>
             <div id="erro-login" class="erro-login">Senha incorreta. Tente novamente.</div>
@@ -345,9 +310,12 @@
 
     <!-- CABEÇALHO -->
     <header>
-        <div class="title-box">
-            <h1>Marbef Services SU Lda</h1>
-            <p>Sistema de Gestão Integrado</p>
+        <div class="brand-box">
+            <div class="logo-emblem">MS</div>
+            <div class="title-box">
+                <h1>Marbef Services SU Lda</h1>
+                <p>Gestão Integrada</p>
+            </div>
         </div>
         <div class="badge-online">● Online</div>
     </header>
@@ -365,38 +333,28 @@
 
         <main>
             <!-- DASHBOARD -->
-            <section id="dashboard" class="secao ativa">
-                <div class="section-banner">
-                    <h2>📊 Painel Principal</h2>
-                    <span>Visão geral</span>
-                </div>
+            <div id="dashboard" class="conteudo-secao ativa">
+                <div class="section-banner">📊 Painel Principal</div>
                 <div class="kpi-grid">
                     <div class="kpi-card kpi-azul">
-                        <div class="kpi-icon">📦</div>
-                        <div class="kpi-info">
-                            <h3>Produtos Registados</h3>
-                            <div class="kpi-valor" id="kpi-stock">0</div>
+                        <div>
+                            <h3>Produtos em Stock</h3>
+                            <div class="kpi-valor">2</div>
                         </div>
                     </div>
                     <div class="kpi-card kpi-vermelho">
-                        <div class="kpi-icon">💰</div>
-                        <div class="kpi-info">
+                        <div>
                             <h3>Total em Dívida</h3>
-                            <div class="kpi-valor" id="kpi-divida">0 MT</div>
+                            <div class="kpi-valor">2.500 MT</div>
                         </div>
                     </div>
                 </div>
-            </section>
+            </div>
 
             <!-- STOCK -->
-            <section id="stock" class="secao">
-                <div class="section-banner">
-                    <h2>📦 Gestão de Stock</h2>
-                    <span>Materiais de construção</span>
-                </div>
+            <div id="stock" class="conteudo-secao">
+                <div class="section-banner">📦 Gestão de Stock e Materiais</div>
                 <div class="card-tabela">
-                    <h3>Inventário Atual</h3>
-                    <br>
                     <table>
                         <thead>
                             <tr>
@@ -405,37 +363,32 @@
                                 <th>Preço Unitário</th>
                             </tr>
                         </thead>
-                        <tbody id="tabela-stock-corpo">
+                        <tbody>
                             <tr>
-                                <td>Cimento Cimentos de Moçambique</td>
+                                <td>Cimento C. Moçambique</td>
                                 <td>50 sacos</td>
                                 <td>550 MT</td>
                             </tr>
                             <tr>
                                 <td>Chapas de Zinco</td>
-                                <td>20 unidades</td>
+                                <td>20 unid.</td>
                                 <td>850 MT</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
-            </section>
+            </div>
 
             <!-- DÍVIDAS -->
-            <section id="dividas" class="secao" style="display: none;">
-                <div class="section-banner">
-                    <h2>💰 Controlo de Dívidas / Clientes</h2>
-                    <span>Créditos pendentes</span>
-                </div>
+            <div id="dividas" class="conteudo-secao">
+                <div class="section-banner">💰 Controlo de Dívidas de Clientes</div>
                 <div class="card-tabela">
-                    <h3>Lista de Clientes Devedores</h3>
-                    <br>
                     <table>
                         <thead>
                             <tr>
                                 <th>Cliente</th>
                                 <th>Descrição</th>
-                                <th>Valor em Dívida</th>
+                                <th>Valor</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -447,13 +400,14 @@
                         </tbody>
                     </table>
                 </div>
-            </section>
+            </div>
         </main>
     </div>
 
     <script>
         function fazerLogin() {
             const senha = document.getElementById('input-senha').value;
+            // Senha definida de forma simples para acesso rápido
             if (senha === "1234" || senha === "marbef2026") {
                 document.getElementById('tela-login').style.display = 'none';
             } else {
@@ -468,14 +422,15 @@
         }
 
         function mudarSecao(idSecao, elementoBtn) {
-            document.querySelectorAll('.secao').forEach(s => {
+            // Ocultar todas as seções
+            document.querySelectorAll('.conteudo-secao').forEach(s => {
                 s.classList.remove('ativa');
-                s.style.display = 'none';
             });
-            const alvo = document.getElementById(idSecao);
-            alvo.classList.add('ativa');
-            alvo.style.display = 'block';
+            
+            // Mostrar a seção selecionada
+            document.getElementById(idSecao).classList.add('ativa');
 
+            // Atualizar botões ativos do menu
             document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('ativo'));
             if(elementoBtn) elementoBtn.classList.add('ativo');
         }
