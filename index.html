@@ -10,8 +10,6 @@
             --azul-medio: #0e3a8a;
             --azul-claro: #eef3fb;
             --vermelho: #d61c1c;
-            --vermelho-escuro: #a81010;
-            --dourado: #D4AF37;
             --verde: #16a34a;
             --cinza-fundo: #f1f5f9;
             --texto-escuro: #0f172a;
@@ -48,9 +46,9 @@
         .login-card {
             background: #ffffff;
             width: 100%;
-            max-width: 400px;
-            border-radius: 14px;
-            padding: 32px 28px;
+            max-width: 380px;
+            border-radius: 12px;
+            padding: 28px 22px;
             text-align: center;
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35);
             border-top: 6px solid var(--vermelho);
@@ -58,24 +56,24 @@
 
         .login-card h2 {
             color: var(--azul-escuro);
-            margin-top: 12px;
-            font-size: 1.4rem;
+            margin-top: 10px;
+            font-size: 1.3rem;
             font-weight: 800;
         }
 
         .login-card p {
             color: #64748b;
-            font-size: 0.88rem;
-            margin: 6px 0 22px;
+            font-size: 0.85rem;
+            margin: 6px 0 18px;
         }
 
         .login-input {
             width: 100%;
-            padding: 12px 14px;
-            border: 2px solid #cbd5e1;
+            padding: 12px;
+            border: 2px solid var(--borda);
             border-radius: 8px;
             font-size: 1rem;
-            margin-bottom: 14px;
+            margin-bottom: 12px;
             text-align: center;
             outline: none;
         }
@@ -89,7 +87,7 @@
             background: linear-gradient(90deg, var(--azul-escuro) 0%, var(--azul-medio) 100%);
             color: #ffffff;
             border: none;
-            padding: 13px;
+            padding: 12px;
             border-radius: 8px;
             font-size: 1rem;
             font-weight: 700;
@@ -98,54 +96,52 @@
 
         .erro-login {
             color: var(--vermelho);
-            font-size: 0.85rem;
+            font-size: 0.82rem;
             font-weight: 700;
             margin-top: 10px;
             display: none;
         }
 
-        /* CABEÇALHO COM LOGÓTIPO */
+        /* CABEÇALHO */
         header {
             background: #ffffff;
-            padding: 12px 20px;
+            padding: 12px 16px;
             display: flex;
             align-items: center;
             justify-content: space-between;
             border-bottom: 4px solid var(--vermelho);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
         }
 
         .brand-box {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
         }
 
-        /* Logótipo em formato de brasão corporativo */
         .logo-emblem {
             background: linear-gradient(135deg, var(--azul-escuro), var(--vermelho));
             color: white;
             font-weight: 900;
-            font-size: 1.1rem;
-            width: 42px;
-            height: 42px;
+            font-size: 1rem;
+            width: 38px;
+            height: 38px;
             display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            border-radius: 6px;
         }
 
         .title-box h1 {
             color: var(--azul-escuro);
-            font-size: 1.25rem;
+            font-size: 1.1rem;
             font-weight: 800;
             line-height: 1.1;
         }
 
         .title-box p {
             color: var(--azul-medio);
-            font-size: 0.78rem;
+            font-size: 0.72rem;
             font-style: italic;
             font-weight: 600;
         }
@@ -153,60 +149,58 @@
         .badge-online {
             color: var(--verde);
             font-weight: 700;
-            font-size: 0.8rem;
+            font-size: 0.78rem;
         }
 
-        /* LAYOUT PRINCIPAL */
+        /* LAYOUT PRINCIPAL RESPONSIVO */
         .app-container {
             display: flex;
             flex: 1;
+            flex-direction: column; /* Por defeito em telemóvel fica empilhado */
         }
 
-        @media (max-width: 768px) {
+        @media (min-width: 768px) {
             .app-container {
-                flex-direction: column;
+                flex-direction: row; /* Em PC fica lado a lado */
             }
             aside {
-                width: 100% !important;
-                flex-direction: row !important;
-                overflow-x: auto;
-                padding: 10px !important;
-            }
-            .nav-links {
-                flex-direction: row !important;
+                width: 240px !important;
+                flex-direction: column !important;
+                height: auto;
             }
         }
 
-        /* MENU LATERAL */
+        /* MENU / ASIDE */
         aside {
-            width: 240px;
+            width: 100%;
             background: linear-gradient(180deg, #061d4a 0%, #0b2e73 100%);
             color: #ffffff;
-            padding: 15px 10px;
+            padding: 10px;
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
             justify-content: space-between;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.15);
         }
 
         .nav-links {
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
             gap: 6px;
+            overflow-x: auto;
+            flex: 1;
         }
 
         .nav-btn {
             background: transparent;
             border: none;
             color: #e2e8f0;
-            padding: 10px 14px;
-            border-radius: 8px;
-            font-size: 0.9rem;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 0.85rem;
             font-weight: 600;
-            text-align: left;
             cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 10px;
             white-space: nowrap;
         }
 
@@ -217,15 +211,20 @@
         }
 
         .nav-btn-sair {
-            margin-top: 15px;
-            background: rgba(214, 28, 28, 0.2);
+            background: rgba(214, 28, 28, 0.3);
             color: #fecaca;
+            padding: 8px 10px;
+            border-radius: 6px;
+            border: none;
+            font-size: 0.85rem;
+            cursor: pointer;
+            white-space: nowrap;
         }
 
         /* CONTEÚDO */
         main {
             flex: 1;
-            padding: 18px;
+            padding: 16px;
             overflow-y: auto;
         }
 
@@ -240,52 +239,49 @@
         .section-banner {
             background: linear-gradient(90deg, var(--azul-escuro) 0%, var(--azul-medio) 100%);
             color: #ffffff;
-            padding: 12px 18px;
-            border-radius: 10px;
-            margin-bottom: 18px;
-            font-size: 1.05rem;
+            padding: 10px 14px;
+            border-radius: 8px;
+            margin-bottom: 14px;
+            font-size: 1rem;
             font-weight: 700;
         }
 
         .kpi-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
-            gap: 14px;
-            margin-bottom: 18px;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 14px;
         }
 
         .kpi-card {
-            border-radius: 10px;
-            padding: 16px;
+            border-radius: 8px;
+            padding: 14px;
             color: #ffffff;
-            display: flex;
-            align-items: center;
-            gap: 12px;
         }
 
         .kpi-azul { background: linear-gradient(135deg, #092b6b, #1348a8); }
         .kpi-vermelho { background: linear-gradient(135deg, #b81414, #e11d1d); }
 
-        .kpi-info h3 { font-size: 0.75rem; opacity: 0.9; }
-        .kpi-valor { font-size: 1.25rem; font-weight: 800; }
+        .kpi-card h3 { font-size: 0.72rem; opacity: 0.9; margin-bottom: 4px; }
+        .kpi-valor { font-size: 1.15rem; font-weight: 800; }
 
         .card-tabela {
             background: #ffffff;
-            border-radius: 10px;
-            padding: 15px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            border-radius: 8px;
+            padding: 12px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
             overflow-x: auto;
         }
 
         table {
             width: 100%;
             border-collapse: collapse;
-            font-size: 0.85rem;
+            font-size: 0.82rem;
             text-align: left;
         }
 
         th, td {
-            padding: 10px;
+            padding: 8px 10px;
             border-bottom: 1px solid #e2e8f0;
         }
 
@@ -301,7 +297,7 @@
     <div id="tela-login">
         <div class="login-card">
             <h2>Marbef Services</h2>
-            <p>Insira a senha de acesso (Senha padrão: <b>1234</b>)</p>
+            <p>Insira a senha de acesso (Senha: <b>1234</b>)</p>
             <input type="password" id="input-senha" class="login-input" placeholder="Senha..." autofocus>
             <button class="btn-entrar" onclick="fazerLogin()">Entrar no Sistema</button>
             <div id="erro-login" class="erro-login">Senha incorreta. Tente novamente.</div>
@@ -313,7 +309,7 @@
         <div class="brand-box">
             <div class="logo-emblem">MS</div>
             <div class="title-box">
-                <h1>Marbef Services SU Lda</h1>
+                <h1>Marbef Services</h1>
                 <p>Gestão Integrada</p>
             </div>
         </div>
@@ -322,50 +318,48 @@
 
     <!-- CONTAINER -->
     <div class="app-container">
+        <!-- MENU SUPERIOR NO TELEMÓVEL -->
         <aside>
             <div class="nav-links">
                 <button class="nav-btn ativo" onclick="mudarSecao('dashboard', this)">📊 Dashboard</button>
                 <button class="nav-btn" onclick="mudarSecao('stock', this)">📦 Stock</button>
                 <button class="nav-btn" onclick="mudarSecao('dividas', this)">💰 Dívidas</button>
             </div>
-            <button class="nav-btn nav-btn-sair" onclick="fazerLogout()">🔒 Bloquear</button>
+            <button class="nav-btn-sair" onclick="fazerLogout()">🔒 Bloquear</button>
         </aside>
 
+        <!-- CONTEÚDO PRINCIPAL -->
         <main>
             <!-- DASHBOARD -->
             <div id="dashboard" class="conteudo-secao ativa">
                 <div class="section-banner">📊 Painel Principal</div>
                 <div class="kpi-grid">
                     <div class="kpi-card kpi-azul">
-                        <div>
-                            <h3>Produtos em Stock</h3>
-                            <div class="kpi-valor">2</div>
-                        </div>
+                        <h3>Produtos</h3>
+                        <div class="kpi-valor">2</div>
                     </div>
                     <div class="kpi-card kpi-vermelho">
-                        <div>
-                            <h3>Total em Dívida</h3>
-                            <div class="kpi-valor">2.500 MT</div>
-                        </div>
+                        <h3>Dívidas</h3>
+                        <div class="kpi-valor">2.500 MT</div>
                     </div>
                 </div>
             </div>
 
             <!-- STOCK -->
             <div id="stock" class="conteudo-secao">
-                <div class="section-banner">📦 Gestão de Stock e Materiais</div>
+                <div class="section-banner">📦 Gestão de Stock</div>
                 <div class="card-tabela">
                     <table>
                         <thead>
                             <tr>
                                 <th>Produto</th>
-                                <th>Quantidade</th>
-                                <th>Preço Unitário</th>
+                                <th>Qtd</th>
+                                <th>Preço</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td>Cimento C. Moçambique</td>
+                                <td>Cimento C. Moç.</td>
                                 <td>50 sacos</td>
                                 <td>550 MT</td>
                             </tr>
@@ -381,7 +375,7 @@
 
             <!-- DÍVIDAS -->
             <div id="dividas" class="conteudo-secao">
-                <div class="section-banner">💰 Controlo de Dívidas de Clientes</div>
+                <div class="section-banner">💰 Controlo de Dívidas</div>
                 <div class="card-tabela">
                     <table>
                         <thead>
@@ -394,7 +388,7 @@
                         <tbody>
                             <tr>
                                 <td>Cliente Exemplo</td>
-                                <td>Compra de Blocos</td>
+                                <td>Blocos</td>
                                 <td>2.500 MT</td>
                             </tr>
                         </tbody>
@@ -407,7 +401,6 @@
     <script>
         function fazerLogin() {
             const senha = document.getElementById('input-senha').value;
-            // Senha definida de forma simples para acesso rápido
             if (senha === "1234" || senha === "marbef2026") {
                 document.getElementById('tela-login').style.display = 'none';
             } else {
@@ -422,15 +415,443 @@
         }
 
         function mudarSecao(idSecao, elementoBtn) {
-            // Ocultar todas as seções
             document.querySelectorAll('.conteudo-secao').forEach(s => {
                 s.classList.remove('ativa');
             });
-            
-            // Mostrar a seção selecionada
             document.getElementById(idSecao).classList.add('ativa');
 
-            // Atualizar botões ativos do menu
+            document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('ativo'));
+            if(elementoBtn) elementoBtn.classList.add('ativo');
+        }
+
+        document.getElementById('input-senha').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') fazerLogin();
+        });
+    </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestor Marbef Services SU Lda</title>
+    <style>
+        :root {
+            --azul-escuro: #082356;
+            --azul-medio: #0e3a8a;
+            --azul-claro: #eef3fb;
+            --vermelho: #d61c1c;
+            --verde: #16a34a;
+            --cinza-fundo: #f1f5f9;
+            --texto-escuro: #0f172a;
+            --borda: #cbd5e1;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--cinza-fundo);
+            color: var(--texto-escuro);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* TELA DE LOGIN */
+        #tela-login {
+            position: fixed;
+            inset: 0;
+            background: linear-gradient(135deg, #061d4a 0%, #0e3a8a 60%, #991b1b 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            padding: 20px;
+        }
+
+        .login-card {
+            background: #ffffff;
+            width: 100%;
+            max-width: 380px;
+            border-radius: 12px;
+            padding: 28px 22px;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35);
+            border-top: 6px solid var(--vermelho);
+        }
+
+        .login-card h2 {
+            color: var(--azul-escuro);
+            margin-top: 10px;
+            font-size: 1.3rem;
+            font-weight: 800;
+        }
+
+        .login-card p {
+            color: #64748b;
+            font-size: 0.85rem;
+            margin: 6px 0 18px;
+        }
+
+        .login-input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid var(--borda);
+            border-radius: 8px;
+            font-size: 1rem;
+            margin-bottom: 12px;
+            text-align: center;
+            outline: none;
+        }
+
+        .login-input:focus {
+            border-color: var(--azul-medio);
+        }
+
+        .btn-entrar {
+            width: 100%;
+            background: linear-gradient(90deg, var(--azul-escuro) 0%, var(--azul-medio) 100%);
+            color: #ffffff;
+            border: none;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .erro-login {
+            color: var(--vermelho);
+            font-size: 0.82rem;
+            font-weight: 700;
+            margin-top: 10px;
+            display: none;
+        }
+
+        /* CABEÇALHO */
+        header {
+            background: #ffffff;
+            padding: 12px 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 4px solid var(--vermelho);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+        }
+
+        .brand-box {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-emblem {
+            background: linear-gradient(135deg, var(--azul-escuro), var(--vermelho));
+            color: white;
+            font-weight: 900;
+            font-size: 1rem;
+            width: 38px;
+            height: 38px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 6px;
+        }
+
+        .title-box h1 {
+            color: var(--azul-escuro);
+            font-size: 1.1rem;
+            font-weight: 800;
+            line-height: 1.1;
+        }
+
+        .title-box p {
+            color: var(--azul-medio);
+            font-size: 0.72rem;
+            font-style: italic;
+            font-weight: 600;
+        }
+
+        .badge-online {
+            color: var(--verde);
+            font-weight: 700;
+            font-size: 0.78rem;
+        }
+
+        /* LAYOUT PRINCIPAL RESPONSIVO */
+        .app-container {
+            display: flex;
+            flex: 1;
+            flex-direction: column; /* Por defeito em telemóvel fica empilhado */
+        }
+
+        @media (min-width: 768px) {
+            .app-container {
+                flex-direction: row; /* Em PC fica lado a lado */
+            }
+            aside {
+                width: 240px !important;
+                flex-direction: column !important;
+                height: auto;
+            }
+        }
+
+        /* MENU / ASIDE */
+        aside {
+            width: 100%;
+            background: linear-gradient(180deg, #061d4a 0%, #0b2e73 100%);
+            color: #ffffff;
+            padding: 10px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+        }
+
+        .nav-links {
+            display: flex;
+            flex-direction: row;
+            gap: 6px;
+            overflow-x: auto;
+            flex: 1;
+        }
+
+        .nav-btn {
+            background: transparent;
+            border: none;
+            color: #e2e8f0;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+
+        .nav-btn:hover, .nav-btn.ativo {
+            background: var(--vermelho);
+            color: #ffffff;
+            font-weight: 700;
+        }
+
+        .nav-btn-sair {
+            background: rgba(214, 28, 28, 0.3);
+            color: #fecaca;
+            padding: 8px 10px;
+            border-radius: 6px;
+            border: none;
+            font-size: 0.85rem;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+
+        /* CONTEÚDO */
+        main {
+            flex: 1;
+            padding: 16px;
+            overflow-y: auto;
+        }
+
+        .conteudo-secao {
+            display: none;
+        }
+
+        .conteudo-secao.ativa {
+            display: block;
+        }
+
+        .section-banner {
+            background: linear-gradient(90deg, var(--azul-escuro) 0%, var(--azul-medio) 100%);
+            color: #ffffff;
+            padding: 10px 14px;
+            border-radius: 8px;
+            margin-bottom: 14px;
+            font-size: 1rem;
+            font-weight: 700;
+        }
+
+        .kpi-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 14px;
+        }
+
+        .kpi-card {
+            border-radius: 8px;
+            padding: 14px;
+            color: #ffffff;
+        }
+
+        .kpi-azul { background: linear-gradient(135deg, #092b6b, #1348a8); }
+        .kpi-vermelho { background: linear-gradient(135deg, #b81414, #e11d1d); }
+
+        .kpi-card h3 { font-size: 0.72rem; opacity: 0.9; margin-bottom: 4px; }
+        .kpi-valor { font-size: 1.15rem; font-weight: 800; }
+
+        .card-tabela {
+            background: #ffffff;
+            border-radius: 8px;
+            padding: 12px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.82rem;
+            text-align: left;
+        }
+
+        th, td {
+            padding: 8px 10px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        th {
+            background: var(--azul-claro);
+            color: var(--azul-escuro);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- TELA DE LOGIN -->
+    <div id="tela-login">
+        <div class="login-card">
+            <h2>Marbef Services</h2>
+            <p>Insira a senha de acesso (Senha: <b>1234</b>)</p>
+            <input type="password" id="input-senha" class="login-input" placeholder="Senha..." autofocus>
+            <button class="btn-entrar" onclick="fazerLogin()">Entrar no Sistema</button>
+            <div id="erro-login" class="erro-login">Senha incorreta. Tente novamente.</div>
+        </div>
+    </div>
+
+    <!-- CABEÇALHO -->
+    <header>
+        <div class="brand-box">
+            <div class="logo-emblem">MS</div>
+            <div class="title-box">
+                <h1>Marbef Services</h1>
+                <p>Gestão Integrada</p>
+            </div>
+        </div>
+        <div class="badge-online">● Online</div>
+    </header>
+
+    <!-- CONTAINER -->
+    <div class="app-container">
+        <!-- MENU SUPERIOR NO TELEMÓVEL -->
+        <aside>
+            <div class="nav-links">
+                <button class="nav-btn ativo" onclick="mudarSecao('dashboard', this)">📊 Dashboard</button>
+                <button class="nav-btn" onclick="mudarSecao('stock', this)">📦 Stock</button>
+                <button class="nav-btn" onclick="mudarSecao('dividas', this)">💰 Dívidas</button>
+            </div>
+            <button class="nav-btn-sair" onclick="fazerLogout()">🔒 Bloquear</button>
+        </aside>
+
+        <!-- CONTEÚDO PRINCIPAL -->
+        <main>
+            <!-- DASHBOARD -->
+            <div id="dashboard" class="conteudo-secao ativa">
+                <div class="section-banner">📊 Painel Principal</div>
+                <div class="kpi-grid">
+                    <div class="kpi-card kpi-azul">
+                        <h3>Produtos</h3>
+                        <div class="kpi-valor">2</div>
+                    </div>
+                    <div class="kpi-card kpi-vermelho">
+                        <h3>Dívidas</h3>
+                        <div class="kpi-valor">2.500 MT</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- STOCK -->
+            <div id="stock" class="conteudo-secao">
+                <div class="section-banner">📦 Gestão de Stock</div>
+                <div class="card-tabela">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Produto</th>
+                                <th>Qtd</th>
+                                <th>Preço</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Cimento C. Moç.</td>
+                                <td>50 sacos</td>
+                                <td>550 MT</td>
+                            </tr>
+                            <tr>
+                                <td>Chapas de Zinco</td>
+                                <td>20 unid.</td>
+                                <td>850 MT</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- DÍVIDAS -->
+            <div id="dividas" class="conteudo-secao">
+                <div class="section-banner">💰 Controlo de Dívidas</div>
+                <div class="card-tabela">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Cliente</th>
+                                <th>Descrição</th>
+                                <th>Valor</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Cliente Exemplo</td>
+                                <td>Blocos</td>
+                                <td>2.500 MT</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        function fazerLogin() {
+            const senha = document.getElementById('input-senha').value;
+            if (senha === "1234" || senha === "marbef2026") {
+                document.getElementById('tela-login').style.display = 'none';
+            } else {
+                document.getElementById('erro-login').style.display = 'block';
+            }
+        }
+
+        function fazerLogout() {
+            document.getElementById('input-senha').value = '';
+            document.getElementById('erro-login').style.display = 'none';
+            document.getElementById('tela-login').style.display = 'flex';
+        }
+
+        function mudarSecao(idSecao, elementoBtn) {
+            document.querySelectorAll('.conteudo-secao').forEach(s => {
+                s.classList.remove('ativa');
+            });
+            document.getElementById(idSecao).classList.add('ativa');
+
             document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('ativo'));
             if(elementoBtn) elementoBtn.classList.add('ativo');
         }
