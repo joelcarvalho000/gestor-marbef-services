@@ -140,26 +140,6 @@
             gap: 18px;
         }
 
-        .logo-box {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding-right: 18px;
-            border-right: 2px solid var(--azul-escuro);
-        }
-
-        .logo-wave {
-            width: 90px;
-            height: 36px;
-        }
-
-        .logo-text {
-            font-size: 0.78rem;
-            font-weight: 800;
-            color: var(--azul-escuro);
-            letter-spacing: 0.3px;
-        }
-
         .title-box h1 {
             color: var(--azul-escuro);
             font-size: 1.55rem;
@@ -370,95 +350,6 @@
             line-height: 1.2;
         }
 
-        .kpi-trend {
-            font-size: 0.78rem;
-            font-weight: 700;
-            color: #86efac;
-            margin-top: 3px;
-        }
-
-        /* PAINEL INTERMÉDIO */
-        .mid-grid {
-            display: grid;
-            grid-template-columns: 1.3fr 1fr;
-            gap: 20px;
-            margin-bottom: 22px;
-        }
-
-        .panel-box {
-            background: #ffffff;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06);
-            border: 1px solid #e2e8f0;
-        }
-
-        .panel-header {
-            background: var(--azul-escuro);
-            color: #ffffff;
-            padding: 11px 16px;
-            font-weight: 700;
-            font-size: 0.98rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .panel-body {
-            padding: 18px;
-        }
-
-        .chart-legend {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-bottom: 14px;
-            font-size: 0.85rem;
-            font-weight: 600;
-        }
-
-        .dot-azul, .dot-vermelho {
-            display: inline-block;
-            width: 11px;
-            height: 11px;
-            border-radius: 50%;
-            margin-right: 5px;
-        }
-
-        .dot-azul { background: var(--azul-medio); }
-        .dot-vermelho { background: var(--vermelho); }
-
-        .bars-container {
-            display: flex;
-            justify-content: space-around;
-            align-items: flex-end;
-            height: 150px;
-            padding-top: 20px;
-            border-bottom: 2px solid #94a3b8;
-        }
-
-        .bar-group {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .bar-pair {
-            display: flex;
-            align-items: flex-end;
-            gap: 6px;
-            height: 120px;
-        }
-
-        .bar {
-            width: 24px;
-            border-radius: 4px 4px 0 0;
-        }
-
-        .bar-r { background: var(--azul-medio); }
-        .bar-d { background: var(--vermelho); }
-
         .alerta-item {
             display: flex;
             align-items: center;
@@ -478,3 +369,102 @@
             gap: 10px;
             font-weight: 600;
             color: var(--azul-escuro);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- TELA DE LOGIN -->
+    <div id="tela-login">
+        <div class="login-card">
+            <h2>Marbef Services</h2>
+            <p>Insira a senha de acesso ao gestor</p>
+            <input type="password" id="input-senha" class="login-input" placeholder="Senha..." autofocus>
+            <button class="btn-entrar" onclick="fazerLogin()">Entrar no Sistema</button>
+            <div id="erro-login" class="erro-login">Senha incorreta. Tente novamente.</div>
+        </div>
+    </div>
+
+    <!-- CABEÇALHO -->
+    <header>
+        <div class="brand-area">
+            <div class="title-box">
+                <h1>Marbef Services SU Lda</h1>
+                <p>Sistema de Gestão Integrado</p>
+            </div>
+        </div>
+        <div class="status-bar">
+            <div class="status-item">
+                <span>Estado:</span>
+                <span class="badge-offline">● Online / Pronto</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <div class="app-container">
+        <aside>
+            <div class="nav-links">
+                <button class="nav-btn ativo" onclick="mudarSecao('dashboard', this)">
+                    <span class="nav-icon">📊</span> Dashboard
+                </button>
+            </div>
+            <button class="nav-btn nav-btn-sair" onclick="fazerLogout()">
+                <span class="nav-icon">🔒</span> Bloquear
+            </button>
+        </aside>
+
+        <main>
+            <!-- SECÃO DASHBOARD -->
+            <section id="dashboard" class="secao ativa">
+                <div class="section-banner">
+                    <h2><span>📊</span> Painel Principal</h2>
+                    <span>Visão geral do negócio</span>
+                </div>
+
+                <div class="kpi-grid">
+                    <div class="kpi-card kpi-azul">
+                        <div class="kpi-icon-circle">📦</div>
+                        <div class="kpi-info">
+                            <h3>Produtos em Stock</h3>
+                            <div class="kpi-valor">0</div>
+                        </div>
+                    </div>
+                    <div class="kpi-card kpi-vermelho">
+                        <div class="kpi-icon-circle">💰</div>
+                        <div class="kpi-info">
+                            <h3>Dívidas Pendentes</h3>
+                            <div class="kpi-valor">0 MT</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        function fazerLogin() {
+            const senha = document.getElementById('input-senha').value;
+            // Defina aqui a sua senha simples (ex: "1234" ou outra preferida)
+            if (senha === "1234" || senha === "marbef2026") {
+                document.getElementById('tela-login').style.display = 'none';
+            } else {
+                document.getElementById('erro-login').style.display = 'block';
+            }
+        }
+
+        function fazerLogout() {
+            document.getElementById('input-senha').value = '';
+            document.getElementById('erro-login').style.display = 'none';
+            document.getElementById('tela-login').style.display = 'flex';
+        }
+
+        // Permitir entrar com a tecla Enter
+        document.getElementById('input-senha').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                fazerLogin();
+            }
+        });
+    </script>
+</body>
+</html>
